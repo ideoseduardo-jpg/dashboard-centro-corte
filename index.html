@@ -9,33 +9,33 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0D1B2A;--card:#1B2838;--card2:#243447;--border:#2D4050;
-  --accent:#E53935;--accentDim:rgba(229,57,53,.12);
-  --green:#4CAF50;--greenDim:rgba(76,175,80,.1);
-  --amber:#FF9800;--amberDim:rgba(255,152,0,.1);
-  --red:#E53935;--purple:#AB47BC;--cyan:#26C6DA;
-  --text:#E8ECF1;--muted:#8899AA;--dim:#556677;
+  --bg:#F0F2F5;--card:#FFFFFF;--card2:#F7F8FA;--border:#E0E3EA;
+  --accent:#D32F2F;--accentDim:rgba(211,47,47,.08);
+  --green:#2E7D32;--greenDim:rgba(46,125,50,.08);
+  --amber:#EF6C00;--amberDim:rgba(239,108,0,.08);
+  --red:#D32F2F;--purple:#7B1FA2;--cyan:#00838F;
+  --text:#1A1A2E;--muted:#5F6B7A;--dim:#9CA3AF;
   --radius:10px;--mono:'JetBrains Mono',monospace;--sans:'DM Sans',sans-serif
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;font-size:13px}
 
-.hdr{background:linear-gradient(135deg,#0D1B2A,#162535);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.hdr h1{font-size:17px;font-weight:700;color:#FFFFFF}
+.hdr{background:#FFFFFF;box-shadow:0 1px 4px rgba(0,0,0,.06);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.hdr h1{font-size:17px;font-weight:700;color:#D32F2F}
 .hdr .sub{font-size:10px;color:var(--dim);margin-top:2px}
 .hdr-right{display:flex;align-items:center;gap:10px}
 .meta-box{text-align:right;font-size:10px;color:var(--muted)}
-.meta-box .val{font-family:var(--mono);font-size:12px;color:var(--cyan);font-weight:600}
+.meta-box .val{font-family:var(--mono);font-size:12px;color:var(--accent);font-weight:600}
 
 .btn{display:flex;flex-direction:column;align-items:center;gap:1px;padding:8px 16px;border-radius:var(--radius);border:1.5px dashed;cursor:pointer;font-family:var(--sans);transition:.2s}
 .btn:hover{transform:translateY(-1px)}
 .btn .ico{font-size:16px}.btn .lbl{font-size:9px;font-weight:700}.btn .hint{font-size:7px;color:var(--dim)}
-.btn-upload{border-color:rgba(38,198,218,.3);background:rgba(38,198,218,.05);color:var(--cyan)}
-.btn-upload:hover{background:rgba(38,198,218,.12);border-color:var(--cyan)}
-.btn-repo{border-color:rgba(76,175,80,.3);background:rgba(76,175,80,.05);color:var(--green);position:relative}
-.btn-repo:hover{background:rgba(76,175,80,.12);border-color:var(--green)}
+.btn-upload{border-color:rgba(211,47,47,.2);background:rgba(211,47,47,.04);color:var(--accent)}
+.btn-upload:hover{background:rgba(211,47,47,.06);border-color:var(--accent)}
+.btn-repo{border-color:rgba(46,125,50,.25);background:rgba(46,125,50,.04);color:var(--green);position:relative}
+.btn-repo:hover{background:rgba(46,125,50,.08);border-color:var(--green)}
 .btn-repo .badge{position:absolute;top:-5px;right:-5px;background:var(--green);color:#fff;font-size:8px;font-weight:700;padding:1px 5px;border-radius:8px;font-family:var(--mono)}
-.btn-clear-repo{border:1px solid rgba(38,198,218,.25);background:rgba(229,57,53,.05);color:var(--red);padding:4px 10px;border-radius:6px;font-size:9px;cursor:pointer;font-family:var(--sans)}
+.btn-clear-repo{border:1px solid rgba(211,47,47,.15);background:rgba(229,57,53,.05);color:var(--red);padding:4px 10px;border-radius:6px;font-size:9px;cursor:pointer;font-family:var(--sans)}
 
 .toast{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:200;padding:8px 20px;border-radius:10px;background:var(--card);border:1px solid var(--border);color:var(--text);font-size:11px;font-weight:500;box-shadow:0 8px 30px rgba(0,0,0,.4);pointer-events:none;opacity:0;transition:opacity .3s}
 .toast.show{opacity:1}
@@ -45,32 +45,32 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:1
 /* FILTERS */
 .filters{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:12px 16px;margin-bottom:14px}
 .filters-top{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
-.filters-top .title{font-size:10px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:1.5px}
+.filters-top .title{font-size:10px;font-weight:700;color:#5F6B7A;text-transform:uppercase;letter-spacing:1.5px}
 .btn-reset{margin-left:auto;padding:3px 10px;border-radius:6px;border:1px solid rgba(229,57,53,.3);background:rgba(229,57,53,.06);color:var(--red);font-size:9px;cursor:pointer;font-family:var(--sans);display:none}
 .f-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}
 .f-group{display:flex;flex-direction:column;gap:3px}
 .f-group label{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:600}
 .f-group select,.f-group input[type=date]{width:100%;padding:7px 12px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--text);font-size:11px;font-family:var(--sans)}
-.f-group select:focus,.f-group input:focus{border-color:var(--cyan);outline:none;box-shadow:0 0 0 2px rgba(38,198,218,.15)}
-input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.7)}
+.f-group select:focus,.f-group input:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 2px rgba(211,47,47,.08)}
+input[type=date]::-webkit-calendar-picker-indicator{filter:none}
 .f-group select{appearance:none;-webkit-appearance:none;padding-right:28px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23556677'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center}
 
 .search-wrap{position:relative}
 .search-wrap input{width:100%;padding:7px 12px;border-radius:8px;border:1px solid var(--border);background:var(--card2);color:var(--text);font-size:11px;font-family:var(--sans);padding-right:24px}
-.search-wrap input:focus{border-color:var(--cyan);outline:none;box-shadow:0 0 0 2px rgba(38,198,218,.15)}
+.search-wrap input:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 2px rgba(211,47,47,.08)}
 .search-wrap .ic{position:absolute;right:8px;bottom:8px;font-size:10px;color:var(--dim)}
-.dropdown{position:absolute;top:100%;left:0;right:0;background:var(--card);border:1px solid var(--cyan);border-top:none;border-radius:0 0 8px 8px;max-height:220px;overflow-y:auto;z-index:50;display:none;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.dropdown{position:absolute;top:100%;left:0;right:0;background:var(--card);border:1px solid var(--accent);border-top:none;border-radius:0 0 8px 8px;max-height:220px;overflow-y:auto;z-index:50;display:none;box-shadow:0 12px 30px rgba(0,0,0,.5)}
 .dropdown.open{display:block}
 .dd-item{padding:6px 12px;font-size:11px;cursor:pointer;display:flex;gap:8px;border-bottom:1px solid var(--border)}
-.dd-item:hover,.dd-item.sel{background:rgba(38,198,218,.1)}
-.dd-item .c{color:var(--cyan);font-family:var(--mono);font-size:10px;min-width:60px}
+.dd-item:hover,.dd-item.sel{background:rgba(211,47,47,.06)}
+.dd-item .c{color:var(--accent);font-family:var(--mono);font-size:10px;min-width:60px}
 .dd-item .d{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .dd-count{padding:4px 12px;font-size:9px;color:var(--dim);border-bottom:1px solid var(--border)}
 
 .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
 .chip{padding:4px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:10px;cursor:pointer;font-family:var(--sans);transition:.2s}
-.chip:hover{border-color:var(--cyan);color:var(--text)}
-.chip.on{background:rgba(38,198,218,.15);border-color:var(--cyan);color:var(--cyan);font-weight:600}
+.chip:hover{border-color:var(--accent);color:var(--text)}
+.chip.on{background:rgba(211,47,47,.08);border-color:var(--accent);color:var(--accent);font-weight:600}
 
 /* KPIs - top banner style */
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
@@ -82,18 +82,18 @@ input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.7)}
 .kpi .value{font-size:22px;font-weight:700;font-family:var(--mono);margin:3px 0}
 .kpi .detail{font-size:9px;color:var(--dim)}
 
-.sec-title{font-size:11px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:2px;margin:20px 0 12px;padding-left:2px}
+.sec-title{font-size:11px;font-weight:700;color:#5F6B7A;text-transform:uppercase;letter-spacing:2px;margin:20px 0 12px;padding-left:2px}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
 @media(max-width:900px){.grid-2{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;overflow:hidden}
-.card h3{font-size:13px;font-weight:600;color:#FFFFFF}
+.card h3{font-size:13px;font-weight:600;color:#1A1A2E}
 .card .sub{font-size:10px;color:var(--muted);margin-top:1px}
 .card-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
 .chart-box{position:relative}
 
 .tabs{display:flex;gap:4px;background:var(--card2);border-radius:8px;padding:3px}
 .tab{padding:4px 12px;border-radius:6px;border:none;background:transparent;color:var(--muted);font-size:10px;cursor:pointer;font-family:var(--sans);font-weight:500;transition:.2s}
-.tab.on{background:rgba(38,198,218,.15);color:var(--cyan)}
+.tab.on{background:rgba(211,47,47,.08);color:var(--accent)}
 
 .st-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
 .st-card{background:var(--card2);border-radius:8px;padding:10px 12px}
@@ -106,8 +106,8 @@ input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.7)}
 .conv-box .cv-val{font-size:22px;font-weight:700;font-family:var(--mono);margin:2px 0}
 .conv-box .cv-detail{font-size:9px;color:var(--dim)}
 .est-chk{display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:6px;border:1px solid var(--border);cursor:pointer;font-size:10px;color:var(--muted);transition:all .2s}
-.est-chk:hover{border-color:var(--cyan)}
-.est-chk.active{border-color:var(--cyan);background:rgba(38,198,218,.1);color:var(--text)}
+.est-chk:hover{border-color:var(--accent)}
+.est-chk.active{border-color:var(--accent);background:rgba(211,47,47,.06);color:var(--text)}
 .est-chk input{display:none}
 .est-chk .ck-dot{width:8px;height:8px;border-radius:50%;border:2px solid var(--dim);transition:all .2s}
 .est-chk.active .ck-dot{border-color:currentColor;background:currentColor}
@@ -117,9 +117,9 @@ input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.7)}
 .est-sum-card .es-val{font-size:18px;font-weight:700;font-family:var(--mono)}
 .est-sum-card .es-det{font-size:9px;color:var(--dim)}
 .qd-btn{padding:4px 10px;border-radius:5px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:9px;font-family:var(--sans);cursor:pointer;transition:all .2s}
-.qd-btn:hover{border-color:var(--cyan);color:var(--text)}
-.qd-btn.on{background:rgba(38,198,218,.12);border-color:var(--cyan);color:var(--cyan);font-weight:600}
-.sel-tag{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:5px;background:rgba(38,198,218,.1);border:1px solid rgba(38,198,218,.25);color:var(--cyan);font-size:9px;font-family:var(--mono)}
+.qd-btn:hover{border-color:var(--accent);color:var(--text)}
+.qd-btn.on{background:rgba(211,47,47,.06);border-color:var(--accent);color:var(--accent);font-weight:600}
+.sel-tag{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:5px;background:rgba(211,47,47,.06);border:1px solid rgba(211,47,47,.15);color:var(--accent);font-size:9px;font-family:var(--mono)}
 .sel-tag .x{cursor:pointer;opacity:.6;font-size:11px}.sel-tag .x:hover{opacity:1}
 .st-card .info{font-size:9px;color:var(--dim);margin-top:2px}
 .st-card .prog{height:3px;background:var(--border);border-radius:2px;margin-top:6px;overflow:hidden}
@@ -130,7 +130,7 @@ table{width:100%;border-collapse:collapse;font-size:11px}
 thead{position:sticky;top:0;z-index:2}
 th{padding:8px 10px;text-align:left;background:var(--card2);color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border)}
 td{padding:6px 10px;border-bottom:1px solid rgba(45,64,80,.5)}
-tr:hover td{background:rgba(38,198,218,.04)}
+tr:hover td{background:rgba(211,47,47,.03)}
 .r{text-align:right}.mono{font-family:var(--mono)}
 .rank{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;font-size:9px;font-weight:700}
 .minibar{height:4px;background:var(--border);border-radius:2px;min-width:60px}
@@ -176,7 +176,7 @@ tr:hover td{background:rgba(38,198,218,.04)}
     <span style="font-size:11px;font-weight:600">📊 Archivos cargados:</span>
     <div id="repoFileList" style="display:flex;gap:6px;flex-wrap:wrap;flex:1"></div>
     <button class="btn-clear-repo" onclick="clearRepo()">🗑️ Vaciar repositorio</button>
-    <button class="btn-clear-repo" style="border-color:rgba(38,198,218,.25);color:var(--accent)" onclick="exportRepo()">💾 Exportar todo</button>
+    <button class="btn-clear-repo" style="border-color:rgba(211,47,47,.15);color:var(--accent)" onclick="exportRepo()">💾 Exportar todo</button>
     <button class="btn-clear-repo" style="border-color:var(--border);color:var(--muted)" onclick="toggleRepoPanel()">✕</button>
   </div>
 </div>
@@ -421,8 +421,8 @@ let lastByProj = []; // store for project detail panel
 let lastFiltered = []; // store filtered data for project detail
 let selectedEstados = new Set(['Pendiente','En proceso','Planificado','Terminado']); // all active by default
 
-const EC = {Terminado:'#4CAF50',Pendiente:'#FF9800','En proceso':'#26C6DA',Planificado:'#AB47BC'};
-const CC = ['#E53935','#4CAF50','#FF9800','#AB47BC','#26C6DA','#FF5252','#FF8A65','#FFB300','#66BB6A','#7E57C2'];
+const EC = {Terminado:'#2E7D32',Pendiente:'#EF6C00','En proceso':'#1565C0',Planificado:'#7B1FA2'};
+const CC = ['#D32F2F','#2E7D32','#EF6C00','#7B1FA2','#00838F','#C62828','#E64A19','#F9A825','#388E3C','#5C6BC0'];
 const TM_BG = CC.map(c => c + '30');
 
 /* ═══════════ INIT ═══════════ */
@@ -839,19 +839,19 @@ function renderDaily(bD) {
   if (dailyCI) dailyCI.destroy();
   const ctx = document.getElementById('dailyC').getContext('2d');
   const grad = ctx.createLinearGradient(0,0,0,200);
-  grad.addColorStop(0,'rgba(38,198,218,.3)'); grad.addColorStop(1,'rgba(38,198,218,.02)');
+  grad.addColorStop(0,'rgba(211,47,47,.2)'); grad.addColorStop(1,'rgba(211,47,47,.02)');
   dailyCI = new Chart(ctx, {type:'bar',
     data:{labels, datasets:[
-      {type:'bar',label:'Venta',data:vals,backgroundColor:grad,borderColor:'rgba(38,198,218,.6)',borderWidth:1,borderRadius:6,maxBarThickness:60,yAxisID:'y',order:2},
-      {type:'line',label:'Proyectos',data:projs,borderColor:'#4CAF50',backgroundColor:'rgba(76,175,80,.05)',pointBackgroundColor:'#4CAF50',pointBorderColor:'#0D1B2A',pointBorderWidth:2,pointRadius:4,tension:.4,yAxisID:'y1',order:1,fill:true}
+      {type:'bar',label:'Venta',data:vals,backgroundColor:grad,borderColor:'rgba(211,47,47,.5)',borderWidth:1,borderRadius:6,maxBarThickness:60,yAxisID:'y',order:2},
+      {type:'line',label:'Proyectos',data:projs,borderColor:'#2E7D32',backgroundColor:'rgba(46,125,50,.04)',pointBackgroundColor:'#2E7D32',pointBorderColor:'#FFFFFF',pointBorderWidth:2,pointRadius:4,tension:.4,yAxisID:'y1',order:1,fill:true}
     ]},
     options:{responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:true,position:'top',align:'end',labels:{color:'#8899AA',font:{size:9,family:'DM Sans'},usePointStyle:true,pointStyleWidth:8,padding:14}},
-        tooltip:{backgroundColor:'#1B2838',borderColor:'#2D4050',borderWidth:1,titleColor:'#E8ECF1',bodyColor:'#E8ECF1',titleFont:{family:'DM Sans',size:10},bodyFont:{family:'JetBrains Mono',size:10},padding:8,
+      plugins:{legend:{display:true,position:'top',align:'end',labels:{color:'#5F6B7A',font:{size:9,family:'DM Sans'},usePointStyle:true,pointStyleWidth:8,padding:14}},
+        tooltip:{backgroundColor:'#FFFFFF',borderColor:'#E0E3EA',borderWidth:1,titleColor:'#1A1A2E',bodyColor:'#1A1A2E',titleFont:{family:'DM Sans',size:10},bodyFont:{family:'JetBrains Mono',size:10},padding:8,
           callbacks:{label:ctx2 => ctx2.dataset.label==='Venta'?fmt(ctx2.raw):ctx2.raw+' proy'}}},
-      scales:{x:{grid:{display:false},ticks:{color:'#556677',font:{size:9}}},
-        y:{position:'left',grid:{color:'rgba(255,255,255,.06)',lineWidth:.5},ticks:{color:'#26C6DA',font:{size:9,family:'JetBrains Mono'},callback:v=>fmtK(v)}},
-        y1:{position:'right',grid:{display:false},ticks:{color:'#4CAF50',font:{size:9,family:'JetBrains Mono'}}}}}
+      scales:{x:{grid:{display:false},ticks:{color:'#9CA3AF',font:{size:9}}},
+        y:{position:'left',grid:{color:'rgba(0,0,0,.06)',lineWidth:.5},ticks:{color:'#D32F2F',font:{size:9,family:'JetBrains Mono'},callback:v=>fmtK(v)}},
+        y1:{position:'right',grid:{display:false},ticks:{color:'#2E7D32',font:{size:9,family:'JetBrains Mono'}}}}}
   });
 }
 
@@ -865,7 +865,7 @@ function renderCatPie(bC, tv) {
     data:{labels, datasets:[{data:vals,backgroundColor:CC.slice(0,bC.length),borderWidth:0}]},
     options:{responsive:true,maintainAspectRatio:false,cutout:'55%',
       plugins:{legend:{display:false},
-        tooltip:{backgroundColor:'#1B2838',borderColor:'#2D4050',borderWidth:1,titleColor:'#E8ECF1',bodyColor:'#E8ECF1',bodyFont:{family:'JetBrains Mono',size:10},
+        tooltip:{backgroundColor:'#FFFFFF',borderColor:'#E0E3EA',borderWidth:1,titleColor:'#1A1A2E',bodyColor:'#1A1A2E',bodyFont:{family:'JetBrains Mono',size:10},
           callbacks:{label:ctx2 => ' '+fmt(ctx2.raw)+' ('+((ctx2.raw/tv)*100).toFixed(1)+'%)'}}}}
   });
   // Custom legend
@@ -891,15 +891,15 @@ function renderTopProd(byProd) {
   if (topProdCI) topProdCI.destroy();
   topProdCI = new Chart(document.getElementById('topProdC'), {type:'bar',
     data:{labels, datasets:[
-      {label:'Unidades',data:vals,backgroundColor:'rgba(38,198,218,.6)',borderRadius:4,maxBarThickness:18,yAxisID:'y'},
-      {label:'Venta S/',data:ventas,backgroundColor:'rgba(255,152,0,.5)',borderRadius:4,maxBarThickness:18,yAxisID:'y1'}
+      {label:'Unidades',data:vals,backgroundColor:'rgba(211,47,47,.5)',borderRadius:4,maxBarThickness:18,yAxisID:'y'},
+      {label:'Venta S/',data:ventas,backgroundColor:'rgba(239,108,0,.4)',borderRadius:4,maxBarThickness:18,yAxisID:'y1'}
     ]},
     options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:true,position:'top',align:'end',labels:{color:'#8899AA',font:{size:9,family:'DM Sans'},usePointStyle:true,pointStyleWidth:8,padding:10}},
-        tooltip:{backgroundColor:'#1B2838',borderColor:'#2D4050',borderWidth:1,titleColor:'#E8ECF1',bodyColor:'#E8ECF1',bodyFont:{family:'JetBrains Mono',size:10},padding:8,
+      plugins:{legend:{display:true,position:'top',align:'end',labels:{color:'#5F6B7A',font:{size:9,family:'DM Sans'},usePointStyle:true,pointStyleWidth:8,padding:10}},
+        tooltip:{backgroundColor:'#FFFFFF',borderColor:'#E0E3EA',borderWidth:1,titleColor:'#1A1A2E',bodyColor:'#1A1A2E',bodyFont:{family:'JetBrains Mono',size:10},padding:8,
           callbacks:{label:ctx2 => ctx2.dataset.label==='Unidades'?ctx2.raw.toLocaleString()+' uds':fmt(ctx2.raw)}}},
-      scales:{x:{position:'top',grid:{color:'rgba(255,255,255,.06)'},ticks:{color:'#556677',font:{size:8,family:'JetBrains Mono'},callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v}},
-        y:{grid:{display:false},ticks:{color:'#E8ECF1',font:{size:9}}},
+      scales:{x:{position:'top',grid:{color:'rgba(0,0,0,.06)'},ticks:{color:'#9CA3AF',font:{size:8,family:'JetBrains Mono'},callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v}},
+        y:{grid:{display:false},ticks:{color:'#1A1A2E',font:{size:9}}},
         y1:{display:false}}}
   });
 }
@@ -913,18 +913,18 @@ function renderQtyDaily(bD) {
   if (qtyDailyCI) qtyDailyCI.destroy();
   const ctx = document.getElementById('qtyDailyC').getContext('2d');
   const grad = ctx.createLinearGradient(0,0,0,220);
-  grad.addColorStop(0,'rgba(76,175,80,.3)'); grad.addColorStop(1,'rgba(76,175,80,.02)');
+  grad.addColorStop(0,'rgba(46,125,50,.25)'); grad.addColorStop(1,'rgba(46,125,50,.02)');
   qtyDailyCI = new Chart(ctx, {type:'bar',
     data:{labels, datasets:[
-      {type:'bar',label:'Cantidad',data:vals,backgroundColor:grad,borderColor:'rgba(76,175,80,.6)',borderWidth:1,borderRadius:6,maxBarThickness:60,yAxisID:'y',order:2},
-      {type:'line',label:'Tendencia',data:vals,borderColor:'#FF9800',backgroundColor:'transparent',pointBackgroundColor:'#FF9800',pointBorderColor:'#0D1B2A',pointBorderWidth:2,pointRadius:3,tension:.4,yAxisID:'y',order:1,fill:false}
+      {type:'bar',label:'Cantidad',data:vals,backgroundColor:grad,borderColor:'rgba(46,125,50,.5)',borderWidth:1,borderRadius:6,maxBarThickness:60,yAxisID:'y',order:2},
+      {type:'line',label:'Tendencia',data:vals,borderColor:'#EF6C00',backgroundColor:'transparent',pointBackgroundColor:'#EF6C00',pointBorderColor:'#FFFFFF',pointBorderWidth:2,pointRadius:3,tension:.4,yAxisID:'y',order:1,fill:false}
     ]},
     options:{responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:true,position:'top',align:'end',labels:{color:'#8899AA',font:{size:9,family:'DM Sans'},usePointStyle:true,pointStyleWidth:8,padding:14}},
-        tooltip:{backgroundColor:'#1B2838',borderColor:'#2D4050',borderWidth:1,titleColor:'#E8ECF1',bodyColor:'#E8ECF1',titleFont:{family:'DM Sans',size:10},bodyFont:{family:'JetBrains Mono',size:10},padding:8,
+      plugins:{legend:{display:true,position:'top',align:'end',labels:{color:'#5F6B7A',font:{size:9,family:'DM Sans'},usePointStyle:true,pointStyleWidth:8,padding:14}},
+        tooltip:{backgroundColor:'#FFFFFF',borderColor:'#E0E3EA',borderWidth:1,titleColor:'#1A1A2E',bodyColor:'#1A1A2E',titleFont:{family:'DM Sans',size:10},bodyFont:{family:'JetBrains Mono',size:10},padding:8,
           callbacks:{label:ctx2 => ctx2.dataset.label==='Cantidad'?ctx2.raw.toLocaleString()+' uds':''}}},
-      scales:{x:{grid:{display:false},ticks:{color:'#556677',font:{size:9}}},
-        y:{grid:{color:'rgba(255,255,255,.06)',lineWidth:.5},ticks:{color:'#4CAF50',font:{size:9,family:'JetBrains Mono'},callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v}}}}
+      scales:{x:{grid:{display:false},ticks:{color:'#9CA3AF',font:{size:9}}},
+        y:{grid:{color:'rgba(0,0,0,.06)',lineWidth:.5},ticks:{color:'#2E7D32',font:{size:9,family:'JetBrains Mono'},callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v}}}}
   });
 }
 
@@ -947,7 +947,7 @@ function renderConversion(f) {
   document.getElementById('convPanel').innerHTML =
     '<div class="conv-kpi">' +
     '<div class="conv-box"><div class="cv-label">Tasa Conversión Venta</div><div class="cv-val" style="color:var(--green)">' + rateV.toFixed(1) + '%</div><div class="cv-detail">' + fmt(conv.venta) + ' de ' + fmt(totalV) + '</div></div>' +
-    '<div class="conv-box"><div class="cv-label">Tasa Conversión Unidades</div><div class="cv-val" style="color:var(--cyan)">' + rateQ.toFixed(1) + '%</div><div class="cv-detail">' + conv.qty.toLocaleString() + ' de ' + totalQ.toLocaleString() + '</div></div>' +
+    '<div class="conv-box"><div class="cv-label">Tasa Conversión Unidades</div><div class="cv-val" style="color:var(--accent)">' + rateQ.toFixed(1) + '%</div><div class="cv-detail">' + conv.qty.toLocaleString() + ' de ' + totalQ.toLocaleString() + '</div></div>' +
     '<div class="conv-box"><div class="cv-label">Pendientes (S/)</div><div class="cv-val" style="color:var(--amber)">' + fmtK(pend.venta) + '</div><div class="cv-detail">' + pend.proys.size + ' proyectos · ' + pend.qty.toLocaleString() + ' uds</div></div>' +
     '<div class="conv-box"><div class="cv-label">Convertidos (S/)</div><div class="cv-val" style="color:var(--green)">' + fmtK(conv.venta) + '</div><div class="cv-detail">' + conv.proys.size + ' proyectos · ' + conv.qty.toLocaleString() + ' uds</div></div>' +
     '</div>';
@@ -955,10 +955,10 @@ function renderConversion(f) {
   // Donut chart
   if (convCI) convCI.destroy();
   convCI = new Chart(document.getElementById('convC'), {type:'doughnut',
-    data:{labels:['Convertido','Pendiente'], datasets:[{data:[conv.venta, pend.venta],backgroundColor:['rgba(76,175,80,.6)','rgba(240,160,48,.5)'],borderWidth:0}]},
+    data:{labels:['Convertido','Pendiente'], datasets:[{data:[conv.venta, pend.venta],backgroundColor:['rgba(46,125,50,.5)','rgba(240,160,48,.5)'],borderWidth:0}]},
     options:{responsive:true,maintainAspectRatio:false,cutout:'68%',
-      plugins:{legend:{display:true,position:'bottom',labels:{color:'#8899AA',font:{size:9,family:'DM Sans'},usePointStyle:true,padding:12}},
-        tooltip:{backgroundColor:'#1B2838',bodyFont:{family:'JetBrains Mono',size:10},
+      plugins:{legend:{display:true,position:'bottom',labels:{color:'#5F6B7A',font:{size:9,family:'DM Sans'},usePointStyle:true,padding:12}},
+        tooltip:{backgroundColor:'#FFFFFF',bodyFont:{family:'JetBrains Mono',size:10},
           callbacks:{label:ctx2 => fmt(ctx2.raw)+' ('+((ctx2.raw/totalV)*100).toFixed(1)+'%)'}}}}
   });
 }
@@ -986,7 +986,7 @@ function renderEstadoSelector(f) {
 
   let h = '<div class="est-summary">';
   h += '<div class="est-sum-card" style="border-left-color:var(--accent)"><div class="es-label">VENTA SELECCIONADA</div><div class="es-val" style="color:var(--accent)">' + fmt(totalSelV) + '</div><div class="es-det">' + (totalAllV > 0 ? ((totalSelV/totalAllV)*100).toFixed(1) : 0) + '% del total</div></div>';
-  h += '<div class="est-sum-card" style="border-left-color:var(--cyan)"><div class="es-label">UNIDADES SELECCIONADAS</div><div class="es-val" style="color:var(--cyan)">' + totalSelQ.toLocaleString() + '</div><div class="es-det">' + totalSelP.toLocaleString() + ' proyectos</div></div>';
+  h += '<div class="est-sum-card" style="border-left-color:var(--accent)"><div class="es-label">UNIDADES SELECCIONADAS</div><div class="es-val" style="color:var(--accent)">' + totalSelQ.toLocaleString() + '</div><div class="es-det">' + totalSelP.toLocaleString() + ' proyectos</div></div>';
 
   // Per-state breakdown
   estados.forEach(est => {
@@ -1022,7 +1022,7 @@ function renderProdDetail() {
     h += '<tr><td class="r"><span class="rank" style="' + (i<3?'background:var(--accentDim);color:var(--accent)':'color:var(--dim)') + '">' + (i+1) + '</span></td>' +
       '<td class="mono" style="font-size:10px;color:var(--muted)">' + p.cod + '</td>' +
       '<td style="font-size:10px">' + p.name + '</td>' +
-      '<td class="r mono" style="color:var(--cyan)">' + p.qty.toLocaleString() + '</td>' +
+      '<td class="r mono" style="color:var(--accent)">' + p.qty.toLocaleString() + '</td>' +
       '<td class="r mono" style="position:relative"><div style="position:absolute;left:0;top:0;bottom:0;width:' + barW + '%;background:var(--accentDim);border-radius:3px"></div><span style="position:relative">' + fmt(p.venta) + '</span></td>' +
       '<td class="r mono" style="color:var(--dim)">' + pct + '%</td>' +
       '<td><button onclick="toggleProdFilter(\'' + p.cod + '\')" style="padding:2px 6px;border-radius:4px;border:1px solid ' + (isSel ? 'var(--accent)' : 'var(--border)') + ';background:' + (isSel ? 'var(--accentDim)' : 'transparent') + ';color:' + (isSel ? 'var(--accent)' : 'var(--muted)') + ';font-size:8px;cursor:pointer" title="Filtrar">' + (isSel ? '✓' : '+') + '</button></td></tr>';
@@ -1094,7 +1094,7 @@ function renderProjDetail() {
   document.getElementById('projDetHead').innerHTML = '<tr><th class="r" style="width:40px">#</th><th style="width:130px">N° Proyecto</th><th>Tienda</th><th style="width:80px">Fecha</th><th style="width:85px">Estado</th><th class="r" style="width:55px">Líneas</th><th class="r" style="width:65px">Artículos</th><th class="r" style="width:75px">Unidades</th><th class="r" style="width:100px">Venta (S/)</th></tr>';
   let h = '';
   projs.slice(0, 80).forEach((p, i) => {
-    const c = EC[p.ep] || '#556677';
+    const c = EC[p.ep] || '#9CA3AF';
     h += '<tr>' +
       '<td class="r"><span class="rank" style="' + (i<3?'background:'+c+'20;color:'+c:'color:var(--dim)') + '">' + (i+1) + '</span></td>' +
       '<td class="mono" style="font-size:10px;color:var(--accent)">' + p.proy + '</td>' +
@@ -1103,7 +1103,7 @@ function renderProjDetail() {
       '<td><span style="color:' + c + ';font-size:9px;padding:2px 6px;border-radius:4px;background:' + c + '15">' + p.ep + '</span></td>' +
       '<td class="r mono" style="color:var(--dim)">' + p.lineas + '</td>' +
       '<td class="r mono" style="color:var(--purple)">' + p.items + '</td>' +
-      '<td class="r mono" style="color:var(--cyan)">' + p.qty.toLocaleString() + '</td>' +
+      '<td class="r mono" style="color:var(--accent)">' + p.qty.toLocaleString() + '</td>' +
       '<td class="r mono" style="color:var(--accent)">' + fmt(p.venta) + '</td></tr>';
   });
   if (projs.length > 80) h += '<tr><td colspan="9" style="text-align:center;color:var(--muted);font-size:10px;padding:8px">... y ' + (projs.length - 80) + ' proyectos más</td></tr>';
@@ -1114,7 +1114,7 @@ function renderStatus(bE, tv) {
   let h = '';
   bE.forEach(e => {
     const pct = tv > 0 ? ((e.venta/tv)*100).toFixed(1) : '0';
-    const c = EC[e.name] || '#556677';
+    const c = EC[e.name] || '#9CA3AF';
     h += '<div class="st-card"><div class="name"><span class="dot" style="background:'+c+'"></span>'+e.name+'</div>' +
       '<div class="val" style="color:'+c+'">'+fmt(e.venta)+'</div>' +
       '<div class="info">'+e.proj+' proyectos · '+pct+'%</div>' +
@@ -1134,7 +1134,7 @@ function renderMain(byStore, byProd, byProj, tv) {
     document.getElementById('chartSub').textContent = byProj.length + ' registrados';
     let h = '<table><thead><tr><th class="r">#</th><th>Proyecto</th><th>Tienda</th><th>Estado</th><th class="r">Ítems</th><th class="r">Venta</th></tr></thead><tbody>';
     byProj.slice(0,20).forEach((r,i) => {
-      const c = EC[r.ep] || '#556677';
+      const c = EC[r.ep] || '#9CA3AF';
       h += '<tr><td class="r"><span class="rank" style="'+(i<3?'background:'+c+'20;color:'+c:'color:var(--dim)')+'">'+(i+1)+'</span></td>' +
         '<td class="mono" style="font-size:10px">'+r.name+'</td><td style="font-size:10px;color:var(--muted)">'+r.store.substring(0,25)+'</td>' +
         '<td><span style="color:'+c+';font-size:10px">'+r.ep+'</span></td>' +
@@ -1155,7 +1155,7 @@ function renderMain(byStore, byProd, byProj, tv) {
   const maxV = Math.max(...vals, 1);
   const colors = vals.map((v,i) => {
     const alpha = 0.9 - (i * 0.05);
-    return 'rgba(38,198,218,' + Math.max(alpha, 0.15) + ')';
+    return 'rgba(211,47,47,' + Math.max(alpha, 0.15) + ')';
   });
 
   if (barCI) barCI.destroy();
@@ -1163,10 +1163,10 @@ function renderMain(byStore, byProd, byProj, tv) {
     data:{labels, datasets:[{data:vals,backgroundColor:colors,borderRadius:4,maxBarThickness:24}]},
     options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
       plugins:{legend:{display:false},
-        tooltip:{backgroundColor:'#1B2838',borderColor:'#2D4050',borderWidth:1,titleColor:'#E8ECF1',bodyColor:'#E8ECF1',bodyFont:{family:'JetBrains Mono',size:10},padding:8,
+        tooltip:{backgroundColor:'#FFFFFF',borderColor:'#E0E3EA',borderWidth:1,titleColor:'#1A1A2E',bodyColor:'#1A1A2E',bodyFont:{family:'JetBrains Mono',size:10},padding:8,
           callbacks:{label:ctx2 => fmt(ctx2.raw) + ' (' + (tv>0?((ctx2.raw/tv)*100).toFixed(1):'0') + '%)'}}},
-      scales:{x:{grid:{color:'rgba(255,255,255,.06)'},ticks:{color:'#556677',font:{size:9,family:'JetBrains Mono'},callback:v=>fmtK(v)}},
-        y:{grid:{display:false},ticks:{color:'#E8ECF1',font:{size:9}}}}}
+      scales:{x:{grid:{color:'rgba(0,0,0,.06)'},ticks:{color:'#9CA3AF',font:{size:9,family:'JetBrains Mono'},callback:v=>fmtK(v)}},
+        y:{grid:{display:false},ticks:{color:'#1A1A2E',font:{size:9}}}}}
   });
 }
 
@@ -1178,7 +1178,7 @@ function renderPie(bC, tv) {
     data:{labels, datasets:[{data:vals,backgroundColor:CC.slice(0,bC.length),borderWidth:0}]},
     options:{responsive:true,maintainAspectRatio:false,cutout:'62%',
       plugins:{legend:{display:false},
-        tooltip:{backgroundColor:'#1B2838',borderColor:'#2D4050',borderWidth:1,titleColor:'#E8ECF1',bodyColor:'#E8ECF1',bodyFont:{family:'JetBrains Mono',size:10},
+        tooltip:{backgroundColor:'#FFFFFF',borderColor:'#E0E3EA',borderWidth:1,titleColor:'#1A1A2E',bodyColor:'#1A1A2E',bodyFont:{family:'JetBrains Mono',size:10},
           callbacks:{label:ctx2 => fmt(ctx2.raw)+' ('+((ctx2.raw/tv)*100).toFixed(1)+'%)'}}}}
   });
   document.getElementById('classSub').textContent = bC.length + ' clasificaciones · ' + fmtK(tv);
