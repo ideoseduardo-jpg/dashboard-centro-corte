@@ -73,14 +73,15 @@ input[type=date]::-webkit-calendar-picker-indicator{filter:none}
 .chip.on{background:rgba(211,47,47,.08);border-color:var(--accent);color:var(--accent);font-weight:600}
 
 /* KPIs - top banner style */
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-bottom:14px}
-.kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 12px;position:relative;overflow:hidden;border-left:3px solid var(--dim);transition:transform .2s}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px}
+@media(max-width:800px){.kpis{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;position:relative;overflow:hidden;border-left:3px solid var(--dim);transition:transform .2s}
 .kpi:hover{transform:translateY(-2px)}
 .kpi .bar{position:absolute;top:0;left:0;right:0;height:0}
-.kpi .icon{font-size:14px;display:block;margin-bottom:3px}
-.kpi .label{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;font-weight:500}
-.kpi .value{font-size:16px;font-weight:700;font-family:var(--mono);margin:2px 0}
-.kpi .detail{font-size:8px;color:var(--dim)}
+.kpi .icon{font-size:16px;display:block;margin-bottom:4px}
+.kpi .label{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;font-weight:500}
+.kpi .value{font-size:20px;font-weight:700;font-family:var(--mono);margin:3px 0}
+.kpi .detail{font-size:9px;color:var(--dim)}
 
 .sec-title{font-size:11px;font-weight:700;color:#5F6B7A;text-transform:uppercase;letter-spacing:2px;margin:20px 0 12px;padding-left:2px}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
@@ -800,20 +801,11 @@ function render() {
   const projProc = new Set(f.filter(r=>r.ep==='En proceso').map(r=>r.p)).size;
 
   document.getElementById('kpis').innerHTML =
-    kpiH('👥','Proyectos Cotizados',pjs.size.toLocaleString(),sts.size+' tiendas','var(--accent)') +
-    kpiH('📋','Proy. Planificados',projPlan.toLocaleString(),'planificados','var(--purple)') +
-    kpiH('⚙️','Proy. En Proceso',projProc.toLocaleString(),'en proceso','var(--cyan)') +
-    kpiH('✅','Proy. Terminados',projTerm.toLocaleString(),'terminados','var(--green)') +
     kpiH('📦','Ítems Vendidos',tq.toLocaleString(),'unidades','#455A64') +
     kpiH('🏪','Tiendas',sts.size.toString(),uniqDates.length+' fechas','#37474F') +
-    '<div style="grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px">' +
     kpiH('💰','Total Cotizados',fmt(tv),'venta estimada total','var(--accent)') +
     kpiH('✔️','Total Facturados',fmt(facturado),'terminado+proceso+planif.','var(--green)') +
-    kpiH('🪵','Tableros Vendidos',fmt(tabV),'melamina+mdf+osb+triplay+pino','#795548') +
-    kpiH('🔲','Cantos Vendidos',fmt(cantV),'tapacantos','var(--amber)') +
-    kpiH('🔧','Servicios',fmt(srvV),'cortes y servicios','var(--cyan)') +
-    kpiH('🎫','Ticket Promedio',fmt(tp),'venta/proyecto','var(--purple)') +
-    '</div>';
+    kpiH('🪵','Tableros Vendidos',fmt(tabV),'melamina+mdf+osb+triplay+pino','#795548');
 
   // Aggregations
   const byStore = agg(f, 's');
